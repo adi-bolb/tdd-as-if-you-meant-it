@@ -4,6 +4,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class TicTacToeTests {
 
+
     /*
     *
     * Think-> Red -> Green -> Refactor
@@ -40,14 +41,22 @@ public class TicTacToeTests {
     *
     * */
 
-    // Introduced the notion of winning
+    private String getGameMessageXWon() {
+        return "X won";
+    }
+
+    private String getGameMessageNobodyWon() {
+        return "Nobody won";
+    }
+
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Arrange
         String board = "one by one";
 
         // Production code
-        String gameResult = board == "one by one" ? getGameMessageXWon() : "Nobody won";
+        String boardOneByOne = "one by one";
+        String gameResult = board == boardOneByOne ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
@@ -55,6 +64,7 @@ public class TicTacToeTests {
         // Assert
         assertEquals(getGameMessageXWon(), actual);
     }
+    // Introduced the notion of winning
 
     /*
     * Intotroduced the notion of column
@@ -64,10 +74,10 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Arrange
-        String board = "two by two with X on left column";
+        String board = "two by two" + " with X on left column";
 
         // Production code
-        String gameResult = board == "two by two with X on left column" ? getGameMessageXWon() : "Nobody won";
+        String gameResult = board == "two by two" + " with X on left column" ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
@@ -81,22 +91,19 @@ public class TicTacToeTests {
     * 0  X
     *    X
     * */
+
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Arrange
         String board = "two by two with X on right column";
 
         // Production code
-        String gameResult = board == "two by two with X on right column" ? getGameMessageXWon() : "Nobody won";
+        String gameResult = board == "two by two with X on right column" ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
-    }
-
-    private String getGameMessageXWon() {
-        return "X won";
     }
 }
