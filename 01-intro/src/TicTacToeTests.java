@@ -82,12 +82,15 @@ public class TicTacToeTests {
         // Settings
         String boardTwoByTwo = "two by two";
         String column = "column";
+        String tokenVecinityPosition = "with X on";
+        String direction = "left";
+        String space = " ";
 
         // Arrange
-        String board = buildBoard(boardTwoByTwo, " with X on left" + " " + column);
+        String board = buildBoard(boardTwoByTwo, space + tokenVecinityPosition + space + direction + space + column);
 
         // Production code
-        String gameResult = board.equals(boardTwoByTwo + " with X on left " + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = board.equals(boardTwoByTwo + space + tokenVecinityPosition + space + direction + space + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
@@ -106,12 +109,15 @@ public class TicTacToeTests {
         // Settings
         String boardTwoByTwo = "two by two";
         String column = "column";
+        String tokenVecinityPosition = "with X on";
+        String direction = "right";
 
         // Arrange
-        String board = buildBoard(boardTwoByTwo, " with X on right" + " " + column);
+        String space = " ";
+        String board = buildBoard(boardTwoByTwo, space + tokenVecinityPosition + space + direction + space + column);
 
         // Production code
-        String gameResult = board.equals(boardTwoByTwo + " with X on right " + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = board.equals(boardTwoByTwo + space + tokenVecinityPosition + space + direction + space + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
