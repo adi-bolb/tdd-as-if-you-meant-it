@@ -45,17 +45,15 @@ public class TicTacToeTests {
     public void forOneByOneBoardXAlwaysWins(){
         // Arrange
         String board = "one by one";
-        String expected = "X won";
 
         // Production code
-        String gameMessageXWon = getGameMessageXWon();
-        String gameResult = board == "one by one" ? gameMessageXWon : "Nobody won";
+        String gameResult = board == "one by one" ? getGameMessageXWon() : "Nobody won";
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(expected, actual);
+        assertEquals(getGameMessageXWon(), actual);
     }
 
     /*
@@ -67,17 +65,15 @@ public class TicTacToeTests {
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Arrange
         String board = "two by two with X on left column";
-        String expected = "X won";
 
         // Production code
-        String gameMessageXWon = getGameMessageXWon();
-        String gameResult = board == "two by two with X on left column" ? gameMessageXWon : "Nobody won";
+        String gameResult = board == "two by two with X on left column" ? getGameMessageXWon() : "Nobody won";
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(expected, actual);
+        assertEquals(getGameMessageXWon(), actual);
     }
 
     /*
@@ -89,17 +85,15 @@ public class TicTacToeTests {
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Arrange
         String board = "two by two with X on right column";
-        String expected = "X won";
 
         // Production code
-        String gameMessageXWon = getGameMessageXWon();
-        String gameResult = board == "two by two with X on right column" ? gameMessageXWon : "Nobody won";
+        String gameResult = board == "two by two with X on right column" ? getGameMessageXWon() : "Nobody won";
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(expected, actual);
+        assertEquals(getGameMessageXWon(), actual);
     }
 
     private String getGameMessageXWon() {
