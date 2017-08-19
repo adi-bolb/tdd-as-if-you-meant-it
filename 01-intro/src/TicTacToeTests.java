@@ -56,7 +56,7 @@ public class TicTacToeTests {
 
         // Production code
         String boardOneByOne = "one by one";
-        String gameResult = board == boardOneByOne ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = board.equals(boardOneByOne) ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
@@ -77,7 +77,8 @@ public class TicTacToeTests {
         String board = "two by two" + " with X on left column";
 
         // Production code
-        String gameResult = board == "two by two" + " with X on left column" ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String boardTwoByTwo = "two by two";
+        String gameResult = board.equals(boardTwoByTwo + " with X on left column") ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
@@ -87,18 +88,18 @@ public class TicTacToeTests {
     }
 
     /*
-    * Introduced no new notion
+    * Introduced no new notions
     * 0  X
     *    X
     * */
-
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Arrange
         String board = "two by two with X on right column";
 
         // Production code
-        String gameResult = board == "two by two with X on right column" ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String boardTwoByTwo = "two by two";
+        String gameResult = board.equals(boardTwoByTwo + " with X on right column") ? getGameMessageXWon() : getGameMessageNobodyWon();
 
         // Act
         String actual = gameResult;
