@@ -49,7 +49,7 @@ public class TicTacToeTests {
         return "Nobody won";
     }
 
-    private String buildBoard(String boardStructure, String typeOfBoard) {
+    private String buildBoard(String typeOfBoard, String boardStructure) {
         return typeOfBoard + boardStructure;
     }
 
@@ -59,9 +59,7 @@ public class TicTacToeTests {
         String boardOneByOne = "one by one";
 
         // Arrange
-        String boardStructure = "";
-        String typeOfBoard = boardOneByOne;
-        String board = buildBoard(boardStructure, typeOfBoard);
+        String board = buildBoard(boardOneByOne, "");
 
         // Production code
         String gameResult = board.equals(boardOneByOne) ? getGameMessageXWon() : getGameMessageNobodyWon();
@@ -86,9 +84,7 @@ public class TicTacToeTests {
         String column = "column";
 
         // Arrange
-        String boardStructure = " with X on left" + " " + column;
-        String typeOfBoard = boardTwoByTwo;
-        String board = buildBoard(boardStructure, typeOfBoard);
+        String board = buildBoard(boardTwoByTwo, " with X on left" + " " + column);
 
         // Production code
         String gameResult = board.equals(boardTwoByTwo + " with X on left " + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
@@ -112,9 +108,7 @@ public class TicTacToeTests {
         String column = "column";
 
         // Arrange
-        String boardStructure = " with X on right" + " " + column;
-        String typeOfBoard = boardTwoByTwo;
-        String board = buildBoard(boardStructure, typeOfBoard);
+        String board = buildBoard(boardTwoByTwo, " with X on right" + " " + column);
 
         // Production code
         String gameResult = board.equals(boardTwoByTwo + " with X on right " + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
