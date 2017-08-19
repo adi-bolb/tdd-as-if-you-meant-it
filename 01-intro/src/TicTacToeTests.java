@@ -40,6 +40,7 @@ public class TicTacToeTests {
     *
     * */
 
+    // Introduced the notion of winning
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Arrange
@@ -57,6 +58,7 @@ public class TicTacToeTests {
     }
 
     /*
+    * Intotroduced the notion of column
     * X 0
     * X
     * */
@@ -75,4 +77,6 @@ public class TicTacToeTests {
         // Assert
         assertEquals(expected, actual);
     }
+
+    
 }
