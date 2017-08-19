@@ -48,7 +48,8 @@ public class TicTacToeTests {
         String expected = "X won";
 
         // Production code
-        String gameResult = board == "one by one" ? "X won" : "Nobody won";
+        String gameMessageXWon = getGameMessageXWon();
+        String gameResult = board == "one by one" ? gameMessageXWon : "Nobody won";
 
         // Act
         String actual = gameResult;
@@ -69,7 +70,8 @@ public class TicTacToeTests {
         String expected = "X won";
 
         // Production code
-        String gameResult = board == "two by two with X on left column" ? "X won" : "Nobody won";
+        String gameMessageXWon = getGameMessageXWon();
+        String gameResult = board == "two by two with X on left column" ? gameMessageXWon : "Nobody won";
 
         // Act
         String actual = gameResult;
@@ -90,12 +92,17 @@ public class TicTacToeTests {
         String expected = "X won";
 
         // Production code
-        String gameResult = board == "two by two with X on right column" ? "X won" : "Nobody won";
+        String gameMessageXWon = getGameMessageXWon();
+        String gameResult = board == "two by two with X on right column" ? gameMessageXWon : "Nobody won";
 
         // Act
         String actual = gameResult;
 
         // Assert
         assertEquals(expected, actual);
+    }
+
+    private String getGameMessageXWon() {
+        return "X won";
     }
 }
