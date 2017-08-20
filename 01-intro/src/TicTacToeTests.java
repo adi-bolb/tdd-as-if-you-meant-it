@@ -49,12 +49,12 @@ public class TicTacToeTests {
         return "Nobody won";
     }
 
-    private String buildBoard(String typeOfBoard, String boardStructure) {
+    private String populateBoard(String typeOfBoard, String boardStructure) {
         return typeOfBoard + boardStructure;
     }
 
-    private String getGameResult(String board, String boardStructure, String boardSize) {
-        return board.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
+    private String getGameResult(String populatedBoard, String boardStructure, String boardSize) {
+        return populatedBoard.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
     }
 
     @Test
@@ -65,10 +65,10 @@ public class TicTacToeTests {
         // Arrange
         String boardStructure = "";
         String boardSize = boardOneByOne;
-        String board = buildBoard(boardSize, boardStructure);
+        String populatedBoard = populateBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(board, boardStructure, boardSize);
+        String actual = getGameResult(populatedBoard, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
@@ -92,10 +92,10 @@ public class TicTacToeTests {
         // Arrange
         String boardSize = boardTwoByTwo;
         String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
-        String board = buildBoard(boardSize, boardStructure);
+        String populatedBoard = populateBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(board, boardStructure, boardSize);
+        String actual = getGameResult(populatedBoard, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
@@ -118,10 +118,10 @@ public class TicTacToeTests {
         String space = " ";
         String boardSize = boardTwoByTwo;
         String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
-        String board = buildBoard(boardSize, boardStructure);
+        String populatedBoard = populateBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(board, boardStructure, boardSize);
+        String actual = getGameResult(populatedBoard, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
