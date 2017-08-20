@@ -53,7 +53,7 @@ public class TicTacToeTests {
         return typeOfBoard + boardStructure;
     }
 
-    private String getGameResult(String boardStructure, String boardSize, String board) {
+    private String getGameResult(String board, String boardStructure, String boardSize) {
         return board.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
     }
 
@@ -68,7 +68,7 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(boardStructure, boardSize, board);
+        String actual = getGameResult(board, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
@@ -95,7 +95,7 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(boardStructure, boardSize, board);
+        String actual = getGameResult(board, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
@@ -121,7 +121,7 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = getGameResult(boardStructure, boardSize, board);
+        String actual = getGameResult(board, boardStructure, boardSize);
 
         // Assert
         assertEquals(getGameMessageXWon(), actual);
