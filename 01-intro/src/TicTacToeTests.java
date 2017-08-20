@@ -53,16 +53,22 @@ public class TicTacToeTests {
         return typeOfBoard + boardStructure;
     }
 
+    private String getGameResult(String boardStructure, String boardSize, String board) {
+        return board.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
+    }
+
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Settings
         String boardOneByOne = "one by one";
 
         // Arrange
-        String board = buildBoard(boardOneByOne, "");
+        String boardStructure = "";
+        String boardSize = boardOneByOne;
+        String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = board.equals(boardOneByOne) ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
@@ -87,10 +93,12 @@ public class TicTacToeTests {
         String space = " ";
 
         // Arrange
-        String board = buildBoard(boardTwoByTwo, space + tokenVecinityPosition + space + direction + space + column);
+        String boardSize = boardTwoByTwo;
+        String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
+        String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = board.equals(boardTwoByTwo + space + tokenVecinityPosition + space + direction + space + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
@@ -114,10 +122,12 @@ public class TicTacToeTests {
 
         // Arrange
         String space = " ";
-        String board = buildBoard(boardTwoByTwo, space + tokenVecinityPosition + space + direction + space + column);
+        String boardSize = boardTwoByTwo;
+        String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
+        String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = board.equals(boardTwoByTwo + space + tokenVecinityPosition + space + direction + space + column) ? getGameMessageXWon() : getGameMessageNobodyWon();
+        String gameResult = getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
