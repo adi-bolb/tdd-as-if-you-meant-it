@@ -7,6 +7,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class BoardTests {
 
+
     /*
     *
     * Board
@@ -23,16 +24,20 @@ public class BoardTests {
     *
     * */
 
+    private Board createBoard(String populated, String structure, String size) {
+        return new Board(populated, structure, size);
+    }
+
     @Test
     public void twoBoardInstancesAreEqualWhenHavingAllMembersEqual(){
         // Arrange
         String populated = "two by two with X on left column";
         String size = "two by two";
         String structure = "with X on left column";
-        Board expected = new Board(populated, structure, size);
+        Board expected = createBoard(populated, structure, size);
 
         // Act
-        Board actual = new Board(populated, structure, size);
+        Board actual = createBoard(populated, structure, size);
 
         // Assert
         assertEquals(expected, actual);
@@ -40,7 +45,7 @@ public class BoardTests {
 
     @Test
     public void boardInstanceIsEqualToItself(){
-        Board board = new Board("some populated", "some structure", "some size");
+        Board board = createBoard("some populated", "some structure", "some size");
 
         assertEquals(board, board);
     }
@@ -56,9 +61,9 @@ public class BoardTests {
         String wrongPopulated = "wrong populated";
         String structure = "good structure";
         String size = "good size";
-        Board expectedBoard = new Board(populated, structure, size);
+        Board expectedBoard = createBoard(populated, structure, size);
 
-        Board board = new Board(wrongPopulated, structure, size);
+        Board board = createBoard(wrongPopulated, structure, size);
 
         assertNotSame(expectedBoard, board);
     }
@@ -69,9 +74,9 @@ public class BoardTests {
         String structure = "good structure";
         String wrongStructure = "wrong structure";
         String size = "good size";
-        Board expectedBoard = new Board(populated, structure, size);
+        Board expectedBoard = createBoard(populated, structure, size);
 
-        Board board = new Board(populated, wrongStructure, size);
+        Board board = createBoard(populated, wrongStructure, size);
 
         assertNotSame(expectedBoard, board);
     }
@@ -82,9 +87,9 @@ public class BoardTests {
         String structure = "good structure";
         String size = "good size";
         String wrongSize = "wrong size";
-        Board expectedBoard = new Board(populated, structure, size);
+        Board expectedBoard = createBoard(populated, structure, size);
 
-        Board board = new Board(populated, structure, wrongSize);
+        Board board = createBoard(populated, structure, wrongSize);
 
         assertNotSame(expectedBoard, board);
     }
