@@ -41,6 +41,8 @@ public class TicTacToeTests {
     *
     * Guideline 7: It's a good idea to always end the day with a red test
     *
+    * Guideline 8: Use value sampling always to make sure you have full test coverage
+    *
     * */
 
     private String getGameMessageXWon() {
