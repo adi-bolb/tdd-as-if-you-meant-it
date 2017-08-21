@@ -39,6 +39,8 @@ public class TicTacToeTests {
     *
     * Guideline 6: Triangulation
     *
+    * Guideline 7: It's a good idea to always end the day with a red test
+    *
     * */
 
     private String getGameMessageXWon() {
