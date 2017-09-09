@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -41,20 +42,14 @@ public class TicTacToeTests {
     *
     * */
 
-    private String getGameMessageXWon() {
-        return "X won";
-    }
-
-    private String getGameMessageNobodyWon() {
-        return "Nobody won";
+    GameResult gameResult;
+    @Before
+    public void setup(){
+        gameResult = new GameResult();
     }
 
     private String buildBoard(String typeOfBoard, String boardStructure) {
         return typeOfBoard + boardStructure;
-    }
-
-    private String getGameResult(String boardStructure, String boardSize, String board) {
-        return board.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
     }
 
     @Test
@@ -68,13 +63,13 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = getGameResult(boardStructure, boardSize, board);
+        String gameResult = this.gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(getGameMessageXWon(), actual);
+        assertEquals(this.gameResult.getGameMessageXWon(), actual);
     }
     // Introduced the notion of winning
 
@@ -98,13 +93,13 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = getGameResult(boardStructure, boardSize, board);
+        String gameResult = this.gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(getGameMessageXWon(), actual);
+        assertEquals(this.gameResult.getGameMessageXWon(), actual);
     }
 
     /*
@@ -127,12 +122,12 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Production code
-        String gameResult = getGameResult(boardStructure, boardSize, board);
+        String gameResult = this.gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Act
         String actual = gameResult;
 
         // Assert
-        assertEquals(getGameMessageXWon(), actual);
+        assertEquals(this.gameResult.getGameMessageXWon(), actual);
     }
 }
