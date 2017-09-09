@@ -63,10 +63,8 @@ public class TicTacToeTests {
         String boardOneByOne = "one by one";
 
         // Arrange
-        String tokenVecinityPosition = "";
-        String direction = "";
-        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String boardSize = boardOneByOne;
+        String boardStructure = buildBoardStructure("", "");
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
@@ -115,7 +113,6 @@ public class TicTacToeTests {
         String direction = "right";
 
         // Arrange
-        String space = " ";
         String boardSize = boardTwoByTwo;
         String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String board = buildBoard(boardSize, boardStructure);
