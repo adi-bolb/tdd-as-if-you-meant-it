@@ -48,6 +48,11 @@ public class TicTacToeTests {
         gameResult = new GameResult();
     }
 
+    private String buildBoardStructure(String tokenVecinityPosition, String direction) {
+        String column = "column"; String space = "";
+        return space + tokenVecinityPosition + space + direction + space + column;
+    }
+
     private String buildBoard(String typeOfBoard, String boardStructure) {
         return typeOfBoard + boardStructure;
     }
@@ -58,7 +63,9 @@ public class TicTacToeTests {
         String boardOneByOne = "one by one";
 
         // Arrange
-        String boardStructure = "";
+        String tokenVecinityPosition = "";
+        String direction = "";
+        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String boardSize = boardOneByOne;
         String board = buildBoard(boardSize, boardStructure);
 
@@ -68,25 +75,24 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
     }
-    // Introduced the notion of winning
 
+    // Introduced the notion of winning
     /*
     * Intotroduced the notion of column
     * X 0
     * X
     * */
+
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Settings
         String boardTwoByTwo = "two by two";
-        String column = "column";
         String tokenVecinityPosition = "with X on";
         String direction = "left";
-        String space = " ";
 
         // Arrange
         String boardSize = boardTwoByTwo;
-        String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
+        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
@@ -95,24 +101,23 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
     }
-
     /*
     * Introduced no new notions
     * 0  X
     *    X
     * */
+
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Settings
         String boardTwoByTwo = "two by two";
-        String column = "column";
         String tokenVecinityPosition = "with X on";
         String direction = "right";
 
         // Arrange
         String space = " ";
         String boardSize = boardTwoByTwo;
-        String boardStructure = space + tokenVecinityPosition + space + direction + space + column;
+        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
