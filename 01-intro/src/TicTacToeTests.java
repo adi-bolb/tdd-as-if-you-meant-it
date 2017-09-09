@@ -42,7 +42,7 @@ public class TicTacToeTests {
     *
     * */
 
-    GameResult gameResult;
+    private GameResult gameResult;
     @Before
     public void setup(){
         gameResult = new GameResult();
@@ -63,10 +63,10 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = this.gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Assert
-        assertEquals(this.gameResult.getGameMessageXWon(), actual);
+        assertEquals(gameResult.getGameMessageXWon(), actual);
     }
     // Introduced the notion of winning
 
@@ -90,10 +90,10 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = this.gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Assert
-        assertEquals(this.gameResult.getGameMessageXWon(), actual);
+        assertEquals(gameResult.getGameMessageXWon(), actual);
     }
 
     /*
@@ -116,9 +116,9 @@ public class TicTacToeTests {
         String board = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = this.gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
 
         // Assert
-        assertEquals(this.gameResult.getGameMessageXWon(), actual);
+        assertEquals(gameResult.getGameMessageXWon(), actual);
     }
 }
