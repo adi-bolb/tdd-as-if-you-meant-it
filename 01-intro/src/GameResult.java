@@ -1,3 +1,5 @@
+import tictactoe.Board;
+
 public class GameResult {
     public String getGameMessageXWon() {
         return "X won";
@@ -7,7 +9,11 @@ public class GameResult {
         return "Nobody won";
     }
 
-    public String getGameResult(String boardStructure, String boardSize, String board) {
-        return board.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
+    public String getGameResult(String boardStructure, String boardSize, String boardTemplate) {
+        return boardTemplate.equals(boardSize + boardStructure) ? getGameMessageXWon() : getGameMessageNobodyWon();
+    }
+
+    public String getGameResult(Board board){
+        return board.getTemplate().equals(board.getSize() + board.getStructure()) ? getGameMessageXWon() : getGameMessageNobodyWon();
     }
 }

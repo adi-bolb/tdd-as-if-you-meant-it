@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import tictactoe.Board;
+import tictactoe.BoardBuilder;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -53,22 +55,29 @@ public class TicTacToeTests {
         return space + tokenVecinityPosition + space + direction + space + column;
     }
 
-    private String buildBoard(String typeOfBoard, String boardStructure) {
+    private String buildBoardTemplate(String typeOfBoard, String boardStructure) {
         return typeOfBoard + boardStructure;
+    }
+
+    private Board buildBoard(String boardOneByOne, String tokenVecinityPosition, String direction) {
+        String boardSize = boardOneByOne;
+        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
+        String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
+        return new BoardBuilder().withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
     }
 
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Settings
         String boardOneByOne = "one by one";
+        String tokenVecinityPosition = "";
+        String direction = "";
 
         // Arrange
-        String boardSize = boardOneByOne;
-        String boardStructure = buildBoardStructure("", "");
-        String boardTemplate = buildBoard(boardSize, boardStructure);
+        Board board = buildBoard(boardOneByOne, tokenVecinityPosition, direction);
 
         // Act
-        String actual = gameResult.getGameResult(boardStructure, boardSize, boardTemplate);
+        String actual = gameResult.getGameResult(board);
 
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
@@ -88,13 +97,12 @@ public class TicTacToeTests {
         String tokenVecinityPosition = "with X on";
         String direction = "left";
 
+
         // Arrange
-        String boardSize = boardTwoByTwo;
-        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
-        String board = buildBoard(boardSize, boardStructure);
+        Board board = buildBoard(boardTwoByTwo, tokenVecinityPosition, direction);
 
         // Act
-        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(board);
 
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
@@ -113,12 +121,10 @@ public class TicTacToeTests {
         String direction = "right";
 
         // Arrange
-        String boardSize = boardTwoByTwo;
-        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
-        String board = buildBoard(boardSize, boardStructure);
+        Board board = buildBoard(boardTwoByTwo, tokenVecinityPosition, direction);
 
         // Act
-        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(board);
 
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
