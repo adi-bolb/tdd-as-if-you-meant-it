@@ -7,7 +7,6 @@ import static junit.framework.TestCase.assertEquals;
 
 public class TicTacToeTests {
 
-
     /*
     *
     * Think-> Red -> Green -> Refactor
