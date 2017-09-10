@@ -25,4 +25,16 @@ public class BoardTests {
 
         assertEquals(boardSize, actual);
     }
+
+    @Test
+    public void canBuildBoardWithBoardTemplate(){
+        String boardTemplate = "correct template";
+        String boardStructureDoesntMatter = "doesnt matter";
+        String boardSizeDoesntMatter = "doesnt matter";
+        Board board = new Board(boardStructureDoesntMatter, boardSizeDoesntMatter, boardTemplate);
+
+        String actual = board.getTemplate();
+
+        assertEquals(boardTemplate, actual);
+    }
 }

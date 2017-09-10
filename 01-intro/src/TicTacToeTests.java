@@ -65,10 +65,10 @@ public class TicTacToeTests {
         // Arrange
         String boardSize = boardOneByOne;
         String boardStructure = buildBoardStructure("", "");
-        String board = buildBoard(boardSize, boardStructure);
+        String boardTemplate = buildBoard(boardSize, boardStructure);
 
         // Act
-        String actual = gameResult.getGameResult(boardStructure, boardSize, board);
+        String actual = gameResult.getGameResult(boardStructure, boardSize, boardTemplate);
 
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
