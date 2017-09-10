@@ -19,8 +19,7 @@ public class BoardTests {
     @Test
     public void canBuildBoardWithBoardSize(){
         String boardSize = "correct size";
-        String boardStructureDoesntMatter = "board structure doesnt matter";
-        Board board = new Board(boardStructureDoesntMatter, boardSize);
+        Board board = new BoardBuilder().withSize(boardSize).build();
 
         String actual = board.getBoardSize();
 

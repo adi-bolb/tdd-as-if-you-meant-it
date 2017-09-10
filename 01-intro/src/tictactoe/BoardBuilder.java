@@ -3,6 +3,7 @@ package tictactoe;
 public class BoardBuilder {
 
     private String structure;
+    private String size;
 
     public BoardBuilder withStructure(String structure){
 
@@ -10,9 +11,13 @@ public class BoardBuilder {
         return this;
     }
 
-    
+    public BoardBuilder withSize(String size){
+
+        this.size = size;
+        return this;
+    }
 
     public Board build(){
-        return new Board(structure);
+        return new Board(structure, size);
     }
 }

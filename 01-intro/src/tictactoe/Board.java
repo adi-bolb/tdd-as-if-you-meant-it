@@ -5,11 +5,8 @@ public class Board {
     private String boardStructure;
     private String boardSize;
 
-    public Board(String boardStructure) {
-        this.boardStructure = boardStructure;
-    }
-
     public Board(String boardStructureDoesntMatter, String boardSize) {
+        this.boardStructure = boardStructureDoesntMatter;
         this.boardSize = boardSize;
     }
 
