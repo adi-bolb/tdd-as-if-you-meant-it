@@ -14,4 +14,15 @@ public class BoardTests {
 
         assertEquals(boardStructure, actual);
     }
+
+    @Test
+    public void canBuildBoardWithBoardSize(){
+        String boardSize = "correct size";
+        String boardStructureDoesntMatter = "board structure doesnt matter";
+        Board board = new Board(boardStructureDoesntMatter, boardSize);
+
+        String actual = board.getBoardSize();
+
+        assertEquals(boardSize, actual);
+    }
 }
