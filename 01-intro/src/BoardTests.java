@@ -1,5 +1,6 @@
 import org.junit.Test;
 import tictactoe.Board;
+import tictactoe.BoardBuilder;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -8,7 +9,7 @@ public class BoardTests {
     @Test
     public void canBuildBoardWithCorrectBoardStructure(){
         String boardStructure = "correct board structure";
-        Board board = new Board(boardStructure);
+        Board board = new BoardBuilder().withStructure(boardStructure).build();
 
         String actual = board.getStructure();
 
