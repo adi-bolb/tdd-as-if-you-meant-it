@@ -21,7 +21,7 @@ public class BoardTests {
         String boardSize = "correct size";
         Board board = new BoardBuilder().withSize(boardSize).build();
 
-        String actual = board.getBoardSize();
+        String actual = board.getSize();
 
         assertEquals(boardSize, actual);
     }

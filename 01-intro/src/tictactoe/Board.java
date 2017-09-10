@@ -1,25 +1,25 @@
 package tictactoe;
 
 public class Board {
-    private String boardTemplate;
-    private String boardStructure;
-    private String boardSize;
+    private String template;
+    private String structure;
+    private String size;
 
-    public Board(String boardStructureDoesntMatter, String boardSizeDoesntMatter, String boardTemplate) {
-        this.boardStructure = boardStructureDoesntMatter;
-        this.boardSize = boardSizeDoesntMatter;
-        this.boardTemplate = boardTemplate;
+    public Board(String structure, String size, String template) {
+        this.structure = structure;
+        this.size = size;
+        this.template = template;
     }
 
     public String getStructure() {
-        return boardStructure;
+        return structure;
     }
 
-    public String getBoardSize() {
-        return boardSize;
+    public String getSize() {
+        return size;
     }
 
     public String getTemplate() {
-        return boardTemplate;
+        return template;
     }
 }
