@@ -4,6 +4,7 @@ public class BoardBuilder {
 
     private String structure;
     private String size;
+    private String template;
 
     public BoardBuilder withStructure(String structure){
 
@@ -17,7 +18,13 @@ public class BoardBuilder {
         return this;
     }
 
+    public BoardBuilder withTemplate(String template){
+
+        this.template = template;
+        return this;
+    }
+
     public Board build(){
-        return new Board(structure, size);
+        return new Board(structure, size, template);
     }
 }

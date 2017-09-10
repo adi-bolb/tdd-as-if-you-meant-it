@@ -29,9 +29,7 @@ public class BoardTests {
     @Test
     public void canBuildBoardWithBoardTemplate(){
         String boardTemplate = "correct template";
-        String boardStructureDoesntMatter = "doesnt matter";
-        String boardSizeDoesntMatter = "doesnt matter";
-        Board board = new Board(boardStructureDoesntMatter, boardSizeDoesntMatter, boardTemplate);
+        Board board = new BoardBuilder().withTemplate(boardTemplate).build();
 
         String actual = board.getTemplate();
 
