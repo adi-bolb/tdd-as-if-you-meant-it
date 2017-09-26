@@ -88,7 +88,6 @@ public class TicTacToeTests {
     * X 0
     * X
     * */
-
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Settings
