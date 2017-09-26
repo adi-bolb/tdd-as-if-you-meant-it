@@ -91,13 +91,11 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Settings
-        String boardTwoByTwo = "two by two";
-        String tokenVecinityPosition = "with X on";
         String direction = "left";
-
+        String token = "X";
 
         // Arrange
-        Board board = buildBoard(boardTwoByTwo, tokenVecinityPosition, direction);
+        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -114,12 +112,11 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Settings
-        String boardTwoByTwo = "two by two";
-        String tokenVecinityPosition = "with X on";
         String direction = "right";
+        String token = "X";
 
         // Arrange
-        Board board = buildBoard(boardTwoByTwo, tokenVecinityPosition, direction);
+        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -131,12 +128,11 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
         // Settings
-        String boardTwoByTwo = "two by two";
-        String tokenVecinityPosition = "with X on";
         String direction = "top";
+        String token = "X";
 
         // Arrange
-        Board board = buildBoard(boardTwoByTwo, tokenVecinityPosition, direction);
+        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
 
         // Production
         String productionCode = gameResult.getGameResult(board);;
@@ -146,5 +142,13 @@ public class TicTacToeTests {
 
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
+    }
+
+    private String getTokenVecinityPosition(String token) {
+        return "with " + token + " on";
+    }
+
+    private String getBoardTwoByTwo() {
+        return "two by two";
     }
 }
