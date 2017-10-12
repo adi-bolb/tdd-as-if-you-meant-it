@@ -9,6 +9,7 @@ public class TicTacToeTests {
 
     /*
     *
+    * 
     * Think-> Red -> Green -> Refactor
     *
     * Guideline 1: Always start with outputs when doing an analysis
