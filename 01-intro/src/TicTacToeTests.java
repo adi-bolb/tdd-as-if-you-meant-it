@@ -47,13 +47,13 @@ public class TicTacToeTests {
     /*
     * Design Experiments
     *
-    * Hypothesis: "two by two", "one by one" should be a class "BoardStructure"
+    * Hypothesis: "two by two", "one by one" should be a class "boardStructure"
     *
     * Plus:
     * No more primitives about Board Structure in the tests
     * All the structure will be in one place. Structural coherence.
     * Some coupling is expected from the tests, but only one other class will use
-    * BoardStructure
+    * boardStructure
     * Duplication will be removed in-between tests
     * Clarity will be better because a cohesive design structure is extracted
     *
@@ -63,9 +63,13 @@ public class TicTacToeTests {
     * */
 
     private GameResult gameResult;
+    private BoardStructure boardStructure;
+    private Direction direction;
     @Before
     public void setup(){
         gameResult = new GameResult();
+        boardStructure = new BoardStructure();
+        direction = new Direction();
     }
 
     private String buildBoardStructure(String tokenVecinityPosition, String direction) {
@@ -87,12 +91,11 @@ public class TicTacToeTests {
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Settings
-        String boardOneByOne = "one by one";
         String tokenVecinityPosition = "";
         String direction = "";
 
         // Arrange
-        Board board = buildBoard(boardOneByOne, tokenVecinityPosition, direction);
+        Board board = buildBoard(boardStructure.getBoardOneByOne(), tokenVecinityPosition, direction);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -102,6 +105,7 @@ public class TicTacToeTests {
     }
 
     // Introduced the notion of winning
+
     /*
     * Intotroduced the notion of column
     * X 0
@@ -110,11 +114,10 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Settings
-        String direction = "left";
         String token = "X";
 
         // Arrange
-        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
+        Board board = buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.left());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -122,6 +125,7 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
     }
+
     /*
     * Introduced no new notions
     * 0  X
@@ -131,11 +135,10 @@ public class TicTacToeTests {
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Settings
-        String direction = "right";
         String token = "X";
 
         // Arrange
-        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
+        Board board = buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.right());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -143,15 +146,13 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameResult.getGameMessageXWon(), actual);
     }
-
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
         // Settings
-        String direction = "top";
         String token = "X";
 
         // Arrange
-        Board board = buildBoard(getBoardTwoByTwo(), getTokenVecinityPosition(token), direction);
+        Board board = buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.top());
 
         // Production
         String productionCode = gameResult.getGameResult(board);;
@@ -167,7 +168,4 @@ public class TicTacToeTests {
         return "with " + token + " on";
     }
 
-    private String getBoardTwoByTwo() {
-        return "two by two";
-    }
 }
