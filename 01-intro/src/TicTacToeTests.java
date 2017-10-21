@@ -88,10 +88,11 @@ public class TicTacToeTests {
         return new BoardBuilder().withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
     }
 
+    // TODO: Minimize duplication of instatiating BoardBuilder twice.
     @Test
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
-        String expected = "Nobody won";
+        String expected = gameResult.getGameMessageNobodyWon();
 
         Board emptyBoard = new BoardBuilder().withStructure(boardStructure.getEmptyBoard()).build();
         // Act

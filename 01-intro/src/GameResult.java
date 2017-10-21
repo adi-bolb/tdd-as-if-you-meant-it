@@ -7,20 +7,11 @@ import tictactoe.Board;
 * */
 
 public class GameResult {
-    public String getGameResult(String emptyBoard) {
-        String gameResultTemp = "";
-        String currentBoard = emptyBoard;
-        if(currentBoard == emptyBoard) {
-            gameResultTemp = "Nobody won";
-        }
-        return gameResultTemp;
-    }
-
     public String getGameMessageXWon() {
         return "X won";
     }
 
-    private String getGameMessageNobodyWon() {
+    public String getGameMessageNobodyWon() {
         return "Nobody won";
     }
 
@@ -28,7 +19,7 @@ public class GameResult {
         BoardStructure boardStructure = new BoardStructure();
         String currentBoard = board.getStructure();
         if(currentBoard == boardStructure.getEmptyBoard()) {
-            return "Nobody won";
+            return getGameMessageNobodyWon();
         }
 
         return board.getTemplate().equals(board.getSize() + board.getStructure()) ? getGameMessageXWon() : getGameMessageNobodyWon();
