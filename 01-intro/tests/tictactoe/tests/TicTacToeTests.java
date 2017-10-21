@@ -67,6 +67,7 @@ public class TicTacToeTests {
     private BoardStructure boardStructure;
     private Direction direction;
     private BoardBuilder boardBuilder;
+    private GameMessage gameMessage;
 
     @Before
     public void setup(){
@@ -74,6 +75,7 @@ public class TicTacToeTests {
         boardStructure = new BoardStructure();
         direction = new Direction();
         boardBuilder = new BoardBuilder();
+        gameMessage = new GameMessage();
     }
 
     private String buildBoardStructure(String tokenVecinityPosition, String direction) {
@@ -95,7 +97,7 @@ public class TicTacToeTests {
     @Test
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
-        String expected = new GameMessage().getGameMessageNobodyWon();
+        String expected = gameMessage.getGameMessageNobodyWon();
         Board emptyBoard = boardBuilder.withStructure(boardStructure.getEmptyBoard()).build();
 
         // Act
@@ -118,7 +120,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(new GameMessage().getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
 
     // Introduced the notion of winning
@@ -140,7 +142,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(new GameMessage().getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
 
     /*
@@ -161,7 +163,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(new GameMessage().getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
@@ -178,7 +180,7 @@ public class TicTacToeTests {
         String actual = productionCode;
 
         // Assert
-        assertEquals(new GameMessage().getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
 
     private String getTokenVecinityPosition(String token) {
