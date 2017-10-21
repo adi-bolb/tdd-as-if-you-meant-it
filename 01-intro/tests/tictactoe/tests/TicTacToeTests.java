@@ -71,11 +71,11 @@ public class TicTacToeTests {
 
     @Before
     public void setup(){
-        gameResult = new GameResult();
+        gameMessage = new GameMessage();
+        gameResult = new GameResult(gameMessage);
         boardStructure = new BoardStructure();
         direction = new Direction();
         boardBuilder = new BoardBuilder();
-        gameMessage = new GameMessage();
     }
 
     private String buildBoardStructure(String tokenVecinityPosition, String direction) {
