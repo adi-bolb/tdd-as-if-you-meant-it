@@ -1,3 +1,5 @@
+package tictactoe;
+
 public class BoardStructure {
 
     public String getBoardTwoByTwo() {

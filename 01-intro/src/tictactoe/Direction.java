@@ -1,8 +1,8 @@
-/*
+package tictactoe;/*
 * Naming Hint
 *
 * An extracted class name will result from the noun duplicated
-* in all the extracted methods -> "Direction"
+* in all the extracted methods -> "tictactoe.Direction"
 *
 * */
 

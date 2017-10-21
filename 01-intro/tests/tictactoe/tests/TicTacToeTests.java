@@ -1,7 +1,8 @@
+package tictactoe.tests;
+
 import org.junit.Before;
 import org.junit.Test;
-import tictactoe.Board;
-import tictactoe.BoardBuilder;
+import tictactoe.*;
 
 import static junit.framework.TestCase.assertEquals;
 

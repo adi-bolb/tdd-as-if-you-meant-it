@@ -1,4 +1,7 @@
+package tictactoe;
+
 import tictactoe.Board;
+import tictactoe.BoardStructure;
 
 /*
 * Hint: When duplication comes into the same class, we increase the cohesion
