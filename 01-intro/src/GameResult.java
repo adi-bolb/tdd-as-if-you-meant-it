@@ -25,6 +25,12 @@ public class GameResult {
     }
 
     public String getGameResult(Board board){
+        BoardStructure boardStructure = new BoardStructure();
+        String currentBoard = board.getStructure();
+        if(currentBoard == boardStructure.getEmptyBoard()) {
+            return "Nobody won";
+        }
+
         return board.getTemplate().equals(board.getSize() + board.getStructure()) ? getGameMessageXWon() : getGameMessageNobodyWon();
     }
 }
