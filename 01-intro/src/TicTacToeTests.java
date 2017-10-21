@@ -92,10 +92,9 @@ public class TicTacToeTests {
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
         String expected = "Nobody won";
-        String emptyBoard = "empty board";
 
         // Act
-        String actual = gameResult.getGameResult(emptyBoard);
+        String actual = gameResult.getGameResult(boardStructure.getEmptyBoard());
 
         // Assert
         assertEquals(expected, actual);
