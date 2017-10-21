@@ -1,12 +1,12 @@
 public class BoardStructure {
-    // TODO: remove static
-    public static String getBoardTwoByTwo() {
+    
+    public String getBoardTwoByTwo() {
         return "two by two";
     }
 
-    public static String getBoardOneByOne() {
+    public String getBoardOneByOne() {
         return "one by one";
     }
 
-    public static String getEmptyBoard() { return "empty board"; }
+    public String getEmptyBoard() { return "empty board"; }
 }
