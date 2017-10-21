@@ -1,6 +1,21 @@
 import tictactoe.Board;
 
+/*
+* Hint: When duplication comes into the same class, we increase the cohesion
+* of the code.
+*
+* */
+
 public class GameResult {
+    public String getGameResult(String emptyBoard) {
+        String gameResultTemp = "";
+        String currentBoard = emptyBoard;
+        if(currentBoard == emptyBoard) {
+            gameResultTemp = "Nobody won";
+        }
+        return gameResultTemp;
+    }
+
     public String getGameMessageXWon() {
         return "X won";
     }

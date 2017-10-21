@@ -94,14 +94,8 @@ public class TicTacToeTests {
         String expected = "Nobody won";
         String emptyBoard = "empty board";
 
-        // Production code
-        String gameResultTemp = "";
-        String currentBoard = emptyBoard;
-        if(currentBoard == emptyBoard) {
-            gameResultTemp = "Nobody won";
-        }
         // Act
-        String actual = gameResultTemp;
+        String actual = gameResult.getGameResult(emptyBoard);
 
         // Assert
         assertEquals(expected, actual);
