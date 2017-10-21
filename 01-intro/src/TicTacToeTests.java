@@ -65,11 +65,14 @@ public class TicTacToeTests {
     private GameResult gameResult;
     private BoardStructure boardStructure;
     private Direction direction;
+    private BoardBuilder boardBuilder;
+
     @Before
     public void setup(){
         gameResult = new GameResult();
         boardStructure = new BoardStructure();
         direction = new Direction();
+        boardBuilder = new BoardBuilder();
     }
 
     private String buildBoardStructure(String tokenVecinityPosition, String direction) {
@@ -85,16 +88,15 @@ public class TicTacToeTests {
         String boardSize = boardOneByOne;
         String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
-        return new BoardBuilder().withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
+        return boardBuilder.withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
     }
 
-    // TODO: Minimize duplication of instatiating BoardBuilder twice.
     @Test
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
         String expected = gameResult.getGameMessageNobodyWon();
+        Board emptyBoard = boardBuilder.withStructure(boardStructure.getEmptyBoard()).build();
 
-        Board emptyBoard = new BoardBuilder().withStructure(boardStructure.getEmptyBoard()).build();
         // Act
         String actual = gameResult.getGameResult(emptyBoard);
 

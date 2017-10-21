@@ -1,5 +1,5 @@
 public class BoardStructure {
-    
+
     public String getBoardTwoByTwo() {
         return "two by two";
     }
