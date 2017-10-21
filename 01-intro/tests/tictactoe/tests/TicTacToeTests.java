@@ -95,7 +95,7 @@ public class TicTacToeTests {
     @Test
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
-        String expected = gameResult.getGameMessageNobodyWon();
+        String expected = new GameMessage().getGameMessageNobodyWon();
         Board emptyBoard = boardBuilder.withStructure(boardStructure.getEmptyBoard()).build();
 
         // Act
@@ -118,7 +118,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(gameResult.getGameMessageXWon(), actual);
+        assertEquals(new GameMessage().getGameMessageXWon(), actual);
     }
 
     // Introduced the notion of winning
@@ -140,7 +140,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(gameResult.getGameMessageXWon(), actual);
+        assertEquals(new GameMessage().getGameMessageXWon(), actual);
     }
 
     /*
@@ -161,7 +161,7 @@ public class TicTacToeTests {
         String actual = gameResult.getGameResult(board);
 
         // Assert
-        assertEquals(gameResult.getGameMessageXWon(), actual);
+        assertEquals(new GameMessage().getGameMessageXWon(), actual);
     }
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
@@ -178,7 +178,7 @@ public class TicTacToeTests {
         String actual = productionCode;
 
         // Assert
-        assertEquals(gameResult.getGameMessageXWon(), actual);
+        assertEquals(new GameMessage().getGameMessageXWon(), actual);
     }
 
     private String getTokenVecinityPosition(String token) {
