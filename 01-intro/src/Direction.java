@@ -13,6 +13,5 @@ public class Direction {
     public String right() {
         return "right";
     }
-    public String left() {  return "left";
-    }
+    public String left() {  return "left"; }
 }
