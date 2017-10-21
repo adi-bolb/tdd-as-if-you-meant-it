@@ -89,6 +89,25 @@ public class TicTacToeTests {
     }
 
     @Test
+    public void whenBoardIsEmptyNobodyWon(){
+        // Arrange
+        String expected = "Nobody won";
+        String emptyBoard = "empty board";
+
+        // Production code
+        String gameResultTemp = "";
+        String currentBoard = emptyBoard;
+        if(currentBoard == emptyBoard) {
+            gameResultTemp = "Nobody won";
+        }
+        // Act
+        String actual = gameResultTemp;
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Settings
         String tokenVecinityPosition = "";
