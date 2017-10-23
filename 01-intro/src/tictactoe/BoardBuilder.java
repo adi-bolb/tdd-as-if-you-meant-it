@@ -6,6 +6,26 @@ public class BoardBuilder {
     private String size;
     private String template;
 
+    public String buildBoardStructure(String tokenVecinityPosition, String direction) {
+        String column = "column"; String space = "";
+        return space + tokenVecinityPosition + space + direction + space + column;
+    }
+
+    public String buildBoardTemplate(String typeOfBoard, String boardStructure) {
+        return typeOfBoard + boardStructure;
+    }
+
+    public Board buildBoard(String boardOneByOne, String tokenVecinityPosition, String direction, BoardBuilder boardBuilder) {
+        String boardSize = boardOneByOne;
+        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
+        String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
+        return boardBuilder.withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
+    }
+
+    public Board buildBoard(String structure, BoardBuilder boardBuilder) {
+        return boardBuilder.withStructure(structure).build();
+    }
+
     public BoardBuilder withStructure(String structure){
 
         this.structure = structure;
