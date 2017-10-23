@@ -2,6 +2,11 @@ package tictactoe;
 
 public class BoardBuilder {
 
+    /*
+    * Hint: Move a method and it has the parameter an instance of the class you
+    * extracted it to, it means you are creating more cohesion in the design.
+    * */
+
     private String structure;
     private String size;
     private String template;
@@ -15,15 +20,15 @@ public class BoardBuilder {
         return typeOfBoard + boardStructure;
     }
 
-    public Board buildBoard(String boardOneByOne, String tokenVecinityPosition, String direction, BoardBuilder boardBuilder) {
+    public Board buildBoard(String boardOneByOne, String tokenVecinityPosition, String direction) {
         String boardSize = boardOneByOne;
         String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
-        return boardBuilder.withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
+        return withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
     }
 
-    public Board buildBoard(String structure, BoardBuilder boardBuilder) {
-        return boardBuilder.withStructure(structure).build();
+    public Board buildBoard(String structure) {
+        return withStructure(structure).build();
     }
 
     public BoardBuilder withStructure(String structure){
