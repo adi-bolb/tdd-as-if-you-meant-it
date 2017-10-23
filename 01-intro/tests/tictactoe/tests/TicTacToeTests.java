@@ -68,7 +68,6 @@ public class TicTacToeTests {
     private BoardStructure boardStructure;
     private Direction direction;
     private BoardBuilder boardBuilder;
-
     private GameMessage gameMessage;
 
     @Before
@@ -83,42 +82,29 @@ public class TicTacToeTests {
     @Test
     public void whenBoardIsEmptyNobodyWon(){
         // Arrange
-        String expected = gameMessage.getGameMessageNobodyWon();
         Board emptyBoard = boardBuilder.buildBoard(boardStructure.getEmptyBoard());
 
-        // Act
-        String actual = gameResult.getGameResult(emptyBoard);
-
         // Assert
-        assertEquals(expected, actual);
+        assertEquals(gameMessage.getGameMessageNobodyWon(), gameResult.getGameResult(emptyBoard));
     }
 
     @Test
     public void forOneByOneBoardXAlwaysWins(){
-        String direction = "";
-
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), direction, Token.X());
-
-        // Act
-        String actual = gameResult.getGameResult(board);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), direction.left(), Token.X());
 
         // Assert
-        assertEquals(gameMessage.getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     // Introduced the notion of winning
-
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Arrange
         Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.left(), Token.X());
 
-        // Act
-        String actual = gameResult.getGameResult(board);
-
         // Assert
-        assertEquals(gameMessage.getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     /*
@@ -137,11 +123,8 @@ public class TicTacToeTests {
         // Arrange
         Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.right(), Token.X());
 
-        // Act
-        String actual = gameResult.getGameResult(board);
-
         // Assert
-        assertEquals(gameMessage.getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     @Test
@@ -149,13 +132,7 @@ public class TicTacToeTests {
         // Arrange
         Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.top(), Token.X());
 
-        // Production
-        String productionCode = gameResult.getGameResult(board);;
-
-        // Act
-        String actual = productionCode;
-
         // Assert
-        assertEquals(gameMessage.getGameMessageXWon(), actual);
+        assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 }
