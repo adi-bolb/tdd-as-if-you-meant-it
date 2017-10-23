@@ -95,12 +95,10 @@ public class TicTacToeTests {
 
     @Test
     public void forOneByOneBoardXAlwaysWins(){
-        // Settings
-        String token = "X";
         String direction = "";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), direction, token);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), direction, Token.X());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -113,11 +111,8 @@ public class TicTacToeTests {
 
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
-        // Settings
-        String token = "X";
-
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.left(), token);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.left(), Token.X());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -125,6 +120,7 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
+
     /*
     * Intotroduced the notion of column
     * X 0
@@ -138,11 +134,8 @@ public class TicTacToeTests {
     * */
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
-        // Settings
-        String token = "X";
-
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.right(), token);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.right(), Token.X());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -153,11 +146,8 @@ public class TicTacToeTests {
 
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
-        // Settings
-        String token = "X";
-
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.top(), token);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.top(), Token.X());
 
         // Production
         String productionCode = gameResult.getGameResult(board);;
@@ -168,5 +158,4 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
-
 }
