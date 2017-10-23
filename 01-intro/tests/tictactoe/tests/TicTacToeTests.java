@@ -64,9 +64,6 @@ public class TicTacToeTests {
     *
     * */
 
-    private String getTokenVecinityPosition(String token) {
-        return "with " + token + " on";
-    }
     private GameResult gameResult;
     private BoardStructure boardStructure;
     private Direction direction;
@@ -99,11 +96,11 @@ public class TicTacToeTests {
     @Test
     public void forOneByOneBoardXAlwaysWins(){
         // Settings
-        String tokenVecinityPosition = "";
+        String token = "X";
         String direction = "";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), tokenVecinityPosition, direction);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), boardBuilder.getTokenVecinityPosition(token), direction);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -120,7 +117,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.left());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.left());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -145,7 +142,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.right());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.right());
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -160,7 +157,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), getTokenVecinityPosition(token), direction.top());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.top());
 
         // Production
         String productionCode = gameResult.getGameResult(board);;

@@ -11,6 +11,10 @@ public class BoardBuilder {
     private String size;
     private String template;
 
+    public String getTokenVecinityPosition(String token) {
+        return "with " + token + " on";
+    }
+
     public String buildBoardStructure(String tokenVecinityPosition, String direction) {
         String column = "column"; String space = "";
         return space + tokenVecinityPosition + space + direction + space + column;
