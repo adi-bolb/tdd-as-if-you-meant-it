@@ -64,10 +64,14 @@ public class TicTacToeTests {
     *
     * */
 
+    private String getTokenVecinityPosition(String token) {
+        return "with " + token + " on";
+    }
     private GameResult gameResult;
     private BoardStructure boardStructure;
     private Direction direction;
     private BoardBuilder boardBuilder;
+
     private GameMessage gameMessage;
 
     @Before
@@ -110,11 +114,6 @@ public class TicTacToeTests {
 
     // Introduced the notion of winning
 
-    /*
-    * Intotroduced the notion of column
-    * X 0
-    * X
-    * */
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
         // Settings
@@ -129,13 +128,17 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
+    /*
+    * Intotroduced the notion of column
+    * X 0
+    * X
+    * */
 
     /*
     * Introduced no new notions
     * 0  X
     *    X
     * */
-
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
         // Settings
@@ -150,6 +153,7 @@ public class TicTacToeTests {
         // Assert
         assertEquals(gameMessage.getGameMessageXWon(), actual);
     }
+
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
         // Settings
@@ -166,10 +170,6 @@ public class TicTacToeTests {
 
         // Assert
         assertEquals(gameMessage.getGameMessageXWon(), actual);
-    }
-
-    private String getTokenVecinityPosition(String token) {
-        return "with " + token + " on";
     }
 
 }
