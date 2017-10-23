@@ -100,7 +100,7 @@ public class TicTacToeTests {
         String direction = "";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), boardBuilder.getTokenVecinityPosition(token), direction);
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardOneByOne(), direction, token);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -117,7 +117,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.left());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.left(), token);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -142,7 +142,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.right());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.right(), token);
 
         // Act
         String actual = gameResult.getGameResult(board);
@@ -157,7 +157,7 @@ public class TicTacToeTests {
         String token = "X";
 
         // Arrange
-        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), boardBuilder.getTokenVecinityPosition(token), direction.top());
+        Board board = boardBuilder.buildBoard(boardStructure.getBoardTwoByTwo(), direction.top(), token);
 
         // Production
         String productionCode = gameResult.getGameResult(board);;

@@ -24,8 +24,9 @@ public class BoardBuilder {
         return typeOfBoard + boardStructure;
     }
 
-    public Board buildBoard(String boardOneByOne, String tokenVecinityPosition, String direction) {
+    public Board buildBoard(String boardOneByOne, String direction, String token) {
         String boardSize = boardOneByOne;
+        String tokenVecinityPosition = getTokenVecinityPosition(token);
         String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
         String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
         return withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
