@@ -2,14 +2,11 @@ package tictactoe;
 
 public class BoardBuilder {
 
-    /*
-    * Hint: Move a method and it has the parameter an instance of the class you
-    * extracted it to, it means you are creating more cohesion in the design.
-    * */
-
     private String structure;
     private String size;
     private String template;
+
+    // TODO: Extract strings from this file to settings
 
     public String getTokenVecinityPosition(String token) {
         return "with " + token + " on";
