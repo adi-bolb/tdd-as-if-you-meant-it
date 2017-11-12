@@ -34,28 +34,28 @@ public class TicTacToeTests {
 
     @Test
     public void forOneByOneBoardXAlwaysWins(){
-        Board board = boardBuilder.buildBoard(oneByOneBoardStructure.getStructure(), direction.left(), Token.X());
+        Board board = boardBuilder.buildBoard(oneByOneBoardStructure, direction.left(), Token.X());
 
         assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     @Test
     public void forTwoByTwoBoardXWinsOnLeftColumn(){
-        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure.getStructure(), direction.left(), Token.X());
+        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure, direction.left(), Token.X());
 
         assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     @Test
     public void forTwoByTwoBoardXWinsOnRightColumn(){
-        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure.getStructure(), direction.right(), Token.X());
+        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure, direction.right(), Token.X());
 
         assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }
 
     @Test
     public void forTwoByTwoBoardXWinsOnTopLine(){
-        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure.getStructure(), direction.top(), Token.X());
+        Board board = boardBuilder.buildBoard(twoByTwoBoardStructure, direction.top(), Token.X());
 
         assertEquals(gameMessage.getGameMessageXWon(), gameResult.getGameResult(board));
     }

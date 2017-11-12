@@ -21,12 +21,14 @@ public class BoardBuilder {
         return typeOfBoard + boardStructure;
     }
 
-    public Board buildBoard(String boardOneByOne, String direction, String token) {
-        String boardSize = boardOneByOne;
+    public Board buildBoard(BoardStructure boardStructure, String direction, String token) {
+        String boardSize = boardStructure.getStructure();
         String tokenVecinityPosition = getTokenVecinityPosition(token);
-        String boardStructure = buildBoardStructure(tokenVecinityPosition, direction);
-        String boardTemplate = buildBoardTemplate(boardSize, boardStructure);
-        return withStructure(boardStructure).withSize(boardSize).withTemplate(boardTemplate).build();
+        // TODO: See what's going on with the boardStructure1.
+        // Using boardStructure just for the size
+        String boardStructure1 = buildBoardStructure(tokenVecinityPosition, direction);
+        String boardTemplate = buildBoardTemplate(boardSize, boardStructure1);
+        return withStructure(boardStructure1).withSize(boardSize).withTemplate(boardTemplate).build();
     }
 
     public Board buildBoard(String structure) {
