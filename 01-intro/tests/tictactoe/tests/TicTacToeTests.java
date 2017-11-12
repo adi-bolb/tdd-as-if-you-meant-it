@@ -18,7 +18,7 @@ public class TicTacToeTests {
     public void setup(){
         gameMessage = new GameMessage();
         boardStructure = new BoardStructure();
-        gameResult = new GameResult(gameMessage, boardStructure);
+        gameResult = new GameResult(gameMessage);
         direction = new Direction();
         boardBuilder = new BoardBuilder();
     }

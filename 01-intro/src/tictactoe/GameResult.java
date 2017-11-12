@@ -3,11 +3,9 @@ package tictactoe;
 public class GameResult {
 
     private final GameMessage gameMessage;
-    private final BoardStructure boardStructure;
 
-    public GameResult(GameMessage gameMessage, BoardStructure boardStructure) {
+    public GameResult(GameMessage gameMessage) {
         this.gameMessage = gameMessage;
-        this.boardStructure = new BoardStructure();
     }
 
     public String getGameResult(Board board){
