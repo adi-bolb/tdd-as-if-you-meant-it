@@ -2,8 +2,8 @@ package tictactoe;
 
 public class BoardBuilder {
 
+    private String state;
     private String structure;
-    private String size;
     private String template;
 
     // TODO: Extract strings from this file to settings
@@ -12,38 +12,37 @@ public class BoardBuilder {
         return "with " + token + " on";
     }
 
-    public String buildBoardStructure(String tokenVecinityPosition, String direction) {
+    public String buildBoardState(String tokenVecinityPosition, String direction) {
         String column = "column"; String space = "";
         return space + tokenVecinityPosition + space + direction + space + column;
     }
 
-    public String buildBoardTemplate(String typeOfBoard, String boardStructure) {
-        return typeOfBoard + boardStructure;
+    public String buildBoardTemplate(String boardStructure, String boardState) {
+        return boardStructure + boardState;
     }
 
     public Board buildBoard(BoardStructure boardStructure, String direction, String token) {
-        String boardSize = boardStructure.getStructure();
         String tokenVecinityPosition = getTokenVecinityPosition(token);
-        // TODO: See what's going on with the boardStructure1.
-        // Using boardStructure just for the size
-        String boardStructure1 = buildBoardStructure(tokenVecinityPosition, direction);
-        String boardTemplate = buildBoardTemplate(boardSize, boardStructure1);
-        return withStructure(boardStructure1).withSize(boardSize).withTemplate(boardTemplate).build();
+        // TODO: See what's going on with the boardState.
+        // Using boardStructure just for the structure
+        String boardState = buildBoardState(tokenVecinityPosition, direction);
+        String boardTemplate = buildBoardTemplate(boardStructure.getStructure(), boardState);
+        return withState(boardState).withStructure(boardStructure.getStructure()).withTemplate(boardTemplate).build();
     }
 
-    public Board buildBoard(String structure) {
-        return withStructure(structure).build();
+    public Board buildBoard(String state) {
+        return withState(state).build();
+    }
+
+    public BoardBuilder withState(String state){
+
+        this.state = state;
+        return this;
     }
 
     public BoardBuilder withStructure(String structure){
 
         this.structure = structure;
-        return this;
-    }
-
-    public BoardBuilder withSize(String size){
-
-        this.size = size;
         return this;
     }
 
@@ -54,6 +53,6 @@ public class BoardBuilder {
     }
 
     public Board build(){
-        return new Board(structure, size, template);
+        return new Board(state, structure, template);
     }
 }

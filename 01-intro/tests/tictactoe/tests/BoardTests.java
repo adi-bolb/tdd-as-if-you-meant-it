@@ -22,9 +22,9 @@ public class BoardTests {
     @Test
     public void canBuildBoardWithCorrectBoardStructure(){
         String boardStructure = "correct board structure";
-        Board board = boardBuilder.withStructure(boardStructure).build();
+        Board board = boardBuilder.withState(boardStructure).build();
 
-        String actual = board.getStructure();
+        String actual = board.getState();
 
         assertEquals(boardStructure, actual);
     }
@@ -32,7 +32,7 @@ public class BoardTests {
     @Test
     public void canBuildBoardWithBoardSize(){
         String boardSize = "correct size";
-        Board board = boardBuilder.withSize(boardSize).build();
+        Board board = boardBuilder.withStructure(boardSize).build();
 
         String actual = board.getSize();
 
@@ -51,8 +51,8 @@ public class BoardTests {
 
     @Test
     public void boardInstanceIsEqualToItself(){
-        Board board = boardBuilder.withStructure("good")
-                .withSize("good as well")
+        Board board = boardBuilder.withState("good")
+                .withStructure("good as well")
                 .withTemplate("very good")
                 .build();
 
@@ -61,12 +61,12 @@ public class BoardTests {
 
     @Test
     public void twoBoardInstancesWithSameValuesAreEqual(){
-        Board firstBoard = boardBuilder.withStructure("good")
-                .withSize("good size")
+        Board firstBoard = boardBuilder.withState("good")
+                .withStructure("good size")
                 .withTemplate("good template")
                 .build();
-        Board secondBoard = boardBuilder.withStructure("good")
-                .withSize("good size")
+        Board secondBoard = boardBuilder.withState("good")
+                .withStructure("good size")
                 .withTemplate("good template")
                 .build();
 
@@ -75,12 +75,12 @@ public class BoardTests {
 
     @Test
     public void twoBoardInstancesWithDifferentValuesAreNotEqual(){
-        Board firstBoard = boardBuilder.withStructure("good 1")
-                .withSize("good size 1")
+        Board firstBoard = boardBuilder.withState("good 1")
+                .withStructure("good size 1")
                 .withTemplate("good template 1")
                 .build();
-        Board secondBoard = boardBuilder.withStructure("good 2")
-                .withSize("good size 2")
+        Board secondBoard = boardBuilder.withState("good 2")
+                .withStructure("good size 2")
                 .withTemplate("good template 2")
                 .build();
 

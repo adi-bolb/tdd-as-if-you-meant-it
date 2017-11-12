@@ -12,11 +12,11 @@ public class GameResult {
 
     public String getGameResult(Board board){
         // TODO: Extract new BoardStructure to outside of this class
-        String currentBoard = board.getStructure();
+        String currentBoard = board.getState();
         if(currentBoard == boardStage.getEmptyBoard()) {
             return gameMessage.getGameMessageNobodyWon();
         }
 
-        return board.getTemplate().equals(board.getSize() + board.getStructure()) ? gameMessage.getGameMessageXWon() : gameMessage.getGameMessageNobodyWon();
+        return board.getTemplate().equals(board.getSize() + board.getState()) ? gameMessage.getGameMessageXWon() : gameMessage.getGameMessageNobodyWon();
     }
 }

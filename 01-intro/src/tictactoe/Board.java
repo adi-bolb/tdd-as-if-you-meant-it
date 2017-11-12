@@ -2,17 +2,17 @@ package tictactoe;
 
 public class Board {
     private String template;
-    private String structure;
+    private String state;
     private String size;
 
-    public Board(String structure, String size, String template) {
-        this.structure = structure;
+    public Board(String state, String size, String template) {
+        this.state = state;
         this.size = size;
         this.template = template;
     }
 
-    public String getStructure() {
-        return structure;
+    public String getState() {
+        return state;
     }
 
     public String getSize() {
@@ -31,14 +31,14 @@ public class Board {
         Board board = (Board) o;
 
         if (template != null ? !template.equals(board.template) : board.template != null) return false;
-        if (structure != null ? !structure.equals(board.structure) : board.structure != null) return false;
+        if (state != null ? !state.equals(board.state) : board.state != null) return false;
         return size != null ? size.equals(board.size) : board.size == null;
     }
 
     @Override
     public int hashCode() {
         int result = template != null ? template.hashCode() : 0;
-        result = 31 * result + (structure != null ? structure.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (size != null ? size.hashCode() : 0);
         return result;
     }
