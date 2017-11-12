@@ -1,12 +1,6 @@
 package tictactoe;
 
-public class BoardStructure {
+public interface BoardStructure {
 
-    public String getBoardTwoByTwo() {
-        return "two by two";
-    }
-
-    public String getBoardOneByOne() {
-        return "one by one";
-    }
+    String getStructure();
 }
