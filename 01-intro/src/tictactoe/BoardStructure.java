@@ -9,6 +9,4 @@ public class BoardStructure {
     public String getBoardOneByOne() {
         return "one by one";
     }
-
-    public String getEmptyBoard() { return "empty board"; }
 }

@@ -13,7 +13,7 @@ public class GameResult {
     public String getGameResult(Board board){
         // TODO: Extract new BoardStructure to outside of this class
         String currentBoard = board.getStructure();
-        if(currentBoard == boardStructure.getEmptyBoard()) {
+        if(currentBoard == BoardStage.getEmptyBoard()) {
             return gameMessage.getGameMessageNobodyWon();
         }
 

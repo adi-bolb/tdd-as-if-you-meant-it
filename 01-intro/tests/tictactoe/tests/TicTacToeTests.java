@@ -25,7 +25,7 @@ public class TicTacToeTests {
 
     @Test
     public void whenBoardIsEmptyNobodyWon(){
-        Board emptyBoard = boardBuilder.buildBoard(boardStructure.getEmptyBoard());
+        Board emptyBoard = boardBuilder.buildBoard(BoardStage.getEmptyBoard());
 
         assertEquals(gameMessage.getGameMessageNobodyWon(), gameResult.getGameResult(emptyBoard));
     }
