@@ -3,15 +3,17 @@ package tictactoe;
 public class GameResult {
 
     private final GameMessage gameMessage;
+    private final BoardStage boardStage;
 
-    public GameResult(GameMessage gameMessage) {
+    public GameResult(GameMessage gameMessage, BoardStage boardStage) {
         this.gameMessage = gameMessage;
+        this.boardStage = boardStage;
     }
 
     public String getGameResult(Board board){
         // TODO: Extract new BoardStructure to outside of this class
         String currentBoard = board.getStructure();
-        if(currentBoard == BoardStage.getEmptyBoard()) {
+        if(currentBoard == boardStage.getEmptyBoard()) {
             return gameMessage.getGameMessageNobodyWon();
         }
 
